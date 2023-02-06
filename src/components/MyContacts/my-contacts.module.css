@@ -1,0 +1,25 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  gap: 30px;
+}
+
+.block {
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: olivedrab;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}
