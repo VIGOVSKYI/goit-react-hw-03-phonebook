@@ -9,7 +9,10 @@ import styles from './my-contacts.module.css';
 
 export default class MyContacts extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
+      { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
+    ],
     filter: '',
   };
 
