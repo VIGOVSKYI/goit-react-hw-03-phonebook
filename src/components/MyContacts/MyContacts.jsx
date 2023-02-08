@@ -17,13 +17,18 @@ export default class MyContacts extends Component {
   };
 
   componentDidMount() {
-    const contacts = JSON.parse(localStorage.getItem('my-contacts'));
-    this.setState({ contacts });
+    const contacts = JSON.parse(localStorage.getItem('my contacts'));
+    if (contacts?.length) {
+      // contacts && contacts.length
+      this.setState({ contacts });
+    }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
-    localStorage.setItem('my-contacts', JSON.stringify(contacts));
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('my contacts', JSON.stringify(contacts));
+    }
   }
 
   isDublicate(name, number) {
