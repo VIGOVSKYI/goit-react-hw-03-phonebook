@@ -22,5 +22,5 @@ const MyContactFilter = ({ handlFilter }) => {
 export default MyContactFilter;
 
 MyContactFilter.prototypes = {
-  onChange: PropTypes.func.isRequired,
+  handlFilter: PropTypes.func.isRequired,
 };

@@ -19,12 +19,12 @@ export default class MyContacts extends Component {
   componentDidMount() {
     const contacts = JSON.parse(localStorage.getItem('my-contacts'));
     this.setState({ contacts });
-  };
+  }
 
   componentDidUpdate() {
     const { contacts } = this.state;
     localStorage.setItem('my-contacts', JSON.stringify(contacts));
-  };
+  }
 
   isDublicate(name, number) {
     const normalizedTitle = name.toLowerCase();
@@ -36,13 +36,13 @@ export default class MyContacts extends Component {
         number.toLowerCase() === normalizedAuthor
       );
     });
-    return Boolean(result);
-  };
+    return result;
+  }
 
   addContact = ({ name, number }) => {
     if (this.isDublicate(name, number)) {
       alert(`${name}. Contact: ${number} is already present`);
-      return false;
+      return;
     }
 
     this.setState(prevState => {
@@ -54,7 +54,7 @@ export default class MyContacts extends Component {
       };
       return { contacts: [newContat, ...contacts] };
     });
-    return true;
+    return;
   };
 
   handlFilter = ({ target }) => {
@@ -89,7 +89,6 @@ export default class MyContacts extends Component {
   render() {
     const { addContact, deleteContact, handlFilter } = this;
     const contacts = this.getFilteredContacts();
-    const isContacts = (contacts.length > 0);
     return (
       <div>
         <h3 className={styles.title}>My contacts</h3>
@@ -101,13 +100,8 @@ export default class MyContacts extends Component {
           <div className={styles.block}>
             <h4 className={styles.title}>Contacts</h4>
             <MyContactFilter handlFilter={handlFilter} />
-            {isContacts && (
-              <MyContactList
-                deleteContact={deleteContact}
-                contacts={contacts}
-              />
-            )}
-            {!isContacts && (
+            <MyContactList deleteContact={deleteContact} contacts={contacts} />
+            {!contacts.length && (
               <p className={styles.message}>No contacts in the list</p>
             )}
           </div>

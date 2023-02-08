@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './my-contact-list.module.css';
 
 const MyContactList = ({ deleteContact, contacts }) => {
-  console.log('contacts', contacts);
 
   const items = contacts.map(({ id, name, number }) => (
     <li key={id} className={styles.item}>
@@ -24,5 +23,5 @@ MyContactList.defaultProps = {
 
 MyContactList.prototypes = {
   onClick: PropTypes.func.isRequired,
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.object.isRequired,
 };

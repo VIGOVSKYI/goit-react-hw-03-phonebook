@@ -5,13 +5,14 @@
 }
 
 .block {
-  border: none;
-  padding: 15px;
+  border: 1px solid;
+  border-color: olivedrab;
   border-radius: 5px;
-  background-color: olivedrab;
+  padding: 15px;
 }
 
 .title {
+  color: olivedrab;
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -19,7 +20,7 @@
 
 .message {
   font-size: 20px;
-  color: black;
+  color: olivedrab;
   font-weight: bold;
   font-style: italic;
 }
