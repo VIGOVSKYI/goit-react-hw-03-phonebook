@@ -9,17 +9,13 @@ import styles from './my-contacts.module.css';
 
 export default class MyContacts extends Component {
   state = {
-    contacts: [
-      { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
-    ],
+    contacts: [],
     filter: '',
   };
 
   componentDidMount() {
     const contacts = JSON.parse(localStorage.getItem('my contacts'));
-    if (contacts?.length) {
-      // contacts && contacts.length
+    if (contacts) {
       this.setState({ contacts });
     }
   }

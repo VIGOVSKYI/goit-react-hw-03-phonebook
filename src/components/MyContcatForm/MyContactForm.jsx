@@ -13,7 +13,6 @@ class MyContactForm extends Component {
     e.preventDefault();
     const { onSubmit } = this.props;
     onSubmit({ ...this.state });
-    console.log('onSubmitMyForm', { ...this.state });
     this.setState({
       name: '',
       number: '',
@@ -21,12 +20,10 @@ class MyContactForm extends Component {
   };
 
   handlChange = ({ target }) => {
-    console.log({ target });
     const { name, value } = target;
     this.setState({
       [name]: value,
     });
-    console.log('after setState', this.state);
   };
 
   render() {
