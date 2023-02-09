@@ -67,5 +67,4 @@ export default MyContactForm;
 
 MyContactForm.prototypes = {
   onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
 };

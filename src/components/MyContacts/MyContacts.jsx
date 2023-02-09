@@ -33,7 +33,7 @@ export default class MyContacts extends Component {
     const { contacts } = this.state;
     const result = contacts.find(({ name, number }) => {
       return (
-        name.toLowerCase() === normalizedTitle &&
+        name.toLowerCase() === normalizedTitle ||
         number.toLowerCase() === normalizedAuthor
       );
     });
